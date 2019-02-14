@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LiveChat } from "./livechat/components/LiveChat";
+import { LiveChat } from "./livechat/components/LiveChatWithHoc";
 import './App.css';
 
 class App extends Component {
