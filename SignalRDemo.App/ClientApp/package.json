@@ -28,6 +28,6 @@
     "not op_mini all"
   ],
   "engines": {
-    "node": "10.12.x"
+    "node": "8.9.4"
   }
 }
