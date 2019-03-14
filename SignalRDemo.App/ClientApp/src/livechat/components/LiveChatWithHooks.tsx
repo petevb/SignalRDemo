@@ -1,6 +1,6 @@
 import { HubConnectionState } from "@aspnet/signalr";
 import React, { useState } from "react";
-import { useSignalR } from "../../signalr";
+import { useSignalR } from "../../signalr/useSignalR";
 import { MessageData } from "../model";
 import { MessageList } from "./MessageList";
 import { NewMessageForm } from "./NewMessageForm";
