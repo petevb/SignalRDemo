@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SignalRDemo.App.Hubs;
 
 namespace SignalRDemo.App
 {
@@ -21,6 +22,7 @@ namespace SignalRDemo.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSignalR();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -51,6 +53,12 @@ namespace SignalRDemo.App
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
+            });
+            
+            // Must go after UseMvc
+            app.UseSignalR(options =>
+            {
+                options.MapHub<ChatHub>("/chat");
             });
 
             app.UseSpa(spa =>
